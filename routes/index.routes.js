@@ -1,25 +1,17 @@
-const {Router} = require('express');
-const router = Router()
+const { Router } = require('express');
+const router = Router();
+const { CtrlgetHome,
+    CtrlgetSkills,
+    CtrlgetPersonalInformation,
+    CtrlgetJobs,
+    CtrlgetSocialMedia } = require('../controllers/apiControllers')
 
-
-//TODO: initial routes
-router.get('/',(req,res)=>{
-    res.render('./pages/home');
-})
-
-router.get('/skills',(req,res)=>{
-    res.render('./pages/skills');
-})
-
-router.get('/personal-information',(req,res)=>{
-    res.render('./pages/informationPersonal');
-})
-router.get('/jobs',(req,res)=>{
-    res.render('./pages/jobs');
-})
-router.get('/social-media',(req,res)=>{
-    res.render('./pages/socialMedia');
-})
+//TODO: :GET initial routes
+router.get('/', CtrlgetHome);
+router.get('/skills', CtrlgetSkills);
+router.get('/personal-information', CtrlgetPersonalInformation);
+router.get('/jobs', CtrlgetJobs);
+router.get('/social-media', CtrlgetSocialMedia)
 
 
 
