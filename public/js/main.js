@@ -1,7 +1,7 @@
 var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
+    grabCursor: false,
+    centeredSlides: false,
     slidesPerView: "auto",
     coverflowEffect: {
       rotate: 50,
@@ -10,7 +10,8 @@ var swiper = new Swiper(".mySwiper", {
       modifier: 1,
       slideShadows: true,
     },
-    pagination: {
-      el: ".swiper-pagination",
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
     },
   });

@@ -13,6 +13,7 @@ router.get('/personal-information', CtrlgetPersonalInformation);
 router.get('/jobs', CtrlgetJobs);
 router.get('/social-media', CtrlgetSocialMedia)
 
+//TODO: POST create information
 
 
 
