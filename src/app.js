@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 //TODO: rutas
-app.use('/api', require('./routes/index.routes'));
+app.use( require('./routes/index.routes'));
 
 //TODO: archivos estaticos
 app.use(express.static(path.join(__dirname, '/public')));
