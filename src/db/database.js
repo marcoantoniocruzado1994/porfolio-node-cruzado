@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb+srv://marco:marco@cluster0.rqfqx.mongodb.net/portafolio-demo?retryWrites=true&w=majority',{
+mongoose.connect('mongodb://localhost/api-portafolio',{
 useNewUrlParser:true,
 useUnifiedTopology:true,
 useFindAndModify:false
