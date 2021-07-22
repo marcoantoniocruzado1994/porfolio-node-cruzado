@@ -1,5 +1,6 @@
 const app = require('./app');
 //TODO: Variables de entorno
+require('dotenv').config();
 //TODO:conexion base de datos
 require('./db/database');
 
