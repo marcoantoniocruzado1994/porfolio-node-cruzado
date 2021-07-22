@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/api-portafolio',{
+mongoose.connect(process.env.URL_DATABASE,{
 useNewUrlParser:true,
 useUnifiedTopology:true,
 useFindAndModify:false
 },()=>{
-    console.log("Connection  MongoDb Success");
+    console.log("Connection  MongoDb Success ready");
 })
