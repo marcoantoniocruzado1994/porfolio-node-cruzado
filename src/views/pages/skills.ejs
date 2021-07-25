@@ -3,50 +3,89 @@
 <%- include('../template/navbar')-%>
 
 
-<div class="container p-4">
+<div class="container-fluid p-4">
   <div class="row">
-      <div class="col-md-6 col-sm-12 mb-4">
-        <div class="card">
-            <div class="card-header">
-              <h3> Nuevos Skills </h3>
+    <div class="col-md-3 col-sm-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h3> Nuevos Skills </h3>
+        </div>
+        <div class="card-body">
+          <form action="/skills" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <input type="file" name="fileImage" class="form-control-file" placeholder="Url Logo Tecnologia">
             </div>
-            <div class="card-body">
-                <form action="/skills" method="POST" >
-                    <div class="form-group">
-                        <input type="text" name="urlImage" class="form-control" placeholder="Url Logo Tecnologia">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="descriptionImagen" class="form-control" placeholder="Nombre Tecnologia">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        Registrar
-                    </button>
-                </form>
+            <div class="form-group">
+              <input type="text" name="descriptionImagen" class="form-control" placeholder="Nombre Tecnologia">
             </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Registrar
+            </button>
+          </form>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <table class="table ">
-            <thead class="thead-dark">
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-            </tbody>
-          </table>
-          
-      </div>
-  </div>
-  
-</div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <table class="table  text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>Tecnologia</th>
+            <th>Url</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% skills.forEach(function(skill,index){%>
+          <tr>
+            <th scope="row" ><%= index+1%></th>
+            <td><%= skill.descriptionImagen%></td>
+            <td><a href="<%= skill.linkImages%>"> <%= skill.linkImages%></a></td>
+            <td>iconos</td>
+          </tr>
+          <% })%>
+        </tbody>
+      </table>
 
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row justify-content-center p-4">
+    <div class="text-center col-md-6">
+      <h3 class="text-danger " style="font-weight: bold;">
+        Consulta Skill
+      </h3>
+      <hr>
+      Envíanos un <b>.JSON</b> a la <b>RUTA</b>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <hr class="mt-0">
+      <label for="ruta">Ruta para la solicitud</label>
+      <input class="form-control" name="ruta" type="text" value="https://www.marcocruzado-dev/skill" disabled>
+      <label for="tipo">Tipo de solicitud</label>
+      <input class="form-control" name="tipo" type="text" value="POST" disabled>
+      <label for="cabezera">Cabezera de solicitud</label>
+      <input class="form-control" name="cabezera" type="text" value="Content-Type: application/json" disabled>
+    </div>
+    <div class="col-md-8">
+      <textarea style="height:285px;" disabled class="form-control">
+        Respuesta en .JSON para SKILL.
+
+
+      {
+        _id: 60fb9a7f20529428643d1e95
+        descriptionImagen:"JavaScript"
+        linkImages:"https://drive.google.com/file/d/1BXgzxhNc1UZKU_O1Env-YB1JnhO_qlQZ/view..."
+        date:2021-07-24T04:43:43.235+00:00
+        __v:0
+    }    
+      </textarea>
+    </div>
+  </div>
+</div>
 
 <%- include('../template/footer')-%>
